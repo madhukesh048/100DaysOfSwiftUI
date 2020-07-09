@@ -304,3 +304,88 @@ while true{
         break
     }
 }
+
+//DAY 5
+//Writing functions
+
+func printHelp(){
+    let msg = """
+Welcome to my App!
+This is Madhukesh.
+"""
+    print(msg)
+}
+printHelp()
+
+//Accepting parameters
+func square(number:Int){
+    print(number * number)
+}
+square(number: 4)
+
+//Returning values
+func squared(number:Int)->Int{
+    return (number * number)
+}
+let ans = squared(number: 8)
+print(ans)
+
+//Parameters names
+func sayHello(to name:String){
+    print("Hello \(name)")
+}
+sayHello(to: "Madhu")
+
+//Omitting parameter names
+func greet(_ person:String){
+    print("Hello \(person)!")
+}
+greet("Madhukesh D")
+
+//Default parameters
+func greetings(_ person:String , nicely:Bool = true){
+    if(nicely == true){
+        print("Hello, \(person)")
+    }else{
+        print("oh no! \(person) again..")
+    }
+}
+greetings("Sachin")
+greetings("Dhoni",nicely: false)
+
+//Variadic functions
+func sq(numbers:Int...){
+    for number in numbers{
+        print("\(number) squared is \(number * number)")
+    }
+}
+sq(numbers: 1,2,3)
+
+//Writing throwing functions
+enum PasswordError:Error{
+    case obvious
+}
+
+func checkPassword(_ password:String)throws -> Bool{
+    if password == "Password"{
+        throw PasswordError.obvious
+    }
+    return true
+}
+
+//Running throwing fucntions
+do{
+    try checkPassword("Password")
+    print("This password is good")
+} catch{
+       print("U cant use this password")
+   }
+
+//Inout parameters
+func doubleInPlace(number: inout Int){
+    number *= 2
+    print(number)
+}
+
+var myNum = 2
+doubleInPlace(number: &myNum)
