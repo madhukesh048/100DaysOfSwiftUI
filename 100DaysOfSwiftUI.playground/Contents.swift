@@ -389,3 +389,47 @@ func doubleInPlace(number: inout Int){
 
 var myNum = 2
 doubleInPlace(number: &myNum)
+
+
+//DAY 6
+//Creating simple closures
+ 
+let driving = {
+    print("Hello this is closure!")
+}
+
+driving()
+
+//Accepting parameters in closures
+let walking = {(place:String)in
+    print("Im walking \(place)")
+}
+
+walking("upstairs")
+
+//Returning values in closures
+let riding = {(place:String)-> String in
+    return "Im riding on \(place)"
+}
+
+let ride = riding("mountain")
+print(ride)
+
+//Closures as parameters
+func travel(action:()->Void){
+    print("Im getting ready")
+    action()
+    print("I arrived")
+}
+
+travel(action: driving)
+
+//Trailing closure syntax
+func travel1(action:()->Void){
+    print("Im getting")
+    action()
+    print("Done")
+}
+travel1 {
+    print("helo")
+}
