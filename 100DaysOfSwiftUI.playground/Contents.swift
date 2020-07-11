@@ -433,3 +433,71 @@ func travel1(action:()->Void){
 travel1 {
     print("helo")
 }
+
+//DAY 7
+//Using closures as parameters when they accept parameters
+func travel2(action:(String)->Void){
+    print("Im getting")
+    action("London")
+    print("Done")
+}
+travel2 {(place:String)in
+    print("helo \(place)")
+}
+
+//Using closures as parameters when they return parameters
+func go(action:(String)->String){
+    print("Im travelling to")
+    let desc = action("London")
+    print(desc)
+    print("I arrived")
+}
+
+go{(place:String)->String in
+    return "Im going to \(place) in my car"
+}
+
+//Shorthand parameter names
+go{
+    "Im goin to \($0)"
+}
+
+//Closures with multiple parameters
+func travelto(action:(String,Int)->String){
+    print("Im getting ready to go.")
+    let description = action("London",60)
+    print(description)
+    print("I Arrived")
+}
+
+travelto{
+    "Im going to \($0) at \($1) rate per hour"
+}
+
+//Returning closures from functions
+func trav()->(String)->Void{
+    return{
+        print("Im going to \($0) ")
+    }
+}
+let res = trav()
+res("Bangalore")
+
+let res1 = trav()("Mumbai")
+
+//Capturing values
+
+let r = t()
+r("London")
+
+func t()-> (String) -> Void {
+    var counter = 1
+    
+    return {
+        print("\(counter). Im going to \($0)")
+        counter += 1
+    }
+}
+r("London")
+
+
