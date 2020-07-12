@@ -36,6 +36,7 @@ let myName: String = "Madhukesh"
 let myAge: Int = 22
 let myHeight: Double = 5.8
 let iAmAwesome: Bool = true
+print("\n")
 
 //DAY 2
 //Arrays
@@ -108,6 +109,7 @@ enum Planet: Int{
     case mars
 }
 let earth = Planet(rawValue: 3)
+print("\n")
 
 //DAY3
 //Arthmetic operators
@@ -209,6 +211,7 @@ case 50..<70:
 default:
     print("You did Great!")
 }
+print("\n")
 
 //DAY 4
 //For loops
@@ -304,6 +307,7 @@ while true{
         break
     }
 }
+print("\n")
 
 //DAY 5
 //Writing functions
@@ -389,6 +393,7 @@ func doubleInPlace(number: inout Int){
 
 var myNum = 2
 doubleInPlace(number: &myNum)
+print("\n")
 
 
 //DAY 6
@@ -433,6 +438,7 @@ func travel1(action:()->Void){
 travel1 {
     print("helo")
 }
+print("\n")
 
 //DAY 7
 //Using closures as parameters when they accept parameters
@@ -499,5 +505,88 @@ func t()-> (String) -> Void {
     }
 }
 r("London")
+print("\n")
 
+//DAY 8
+//Creating structs
 
+struct Sports{
+    var name:String
+}
+
+var tennis = Sports(name:"Tennis")
+print(tennis.name)
+tennis.name = "Lawn tennis"
+print(tennis.name)
+
+//Computed properties
+struct Sport{
+    var name : String
+    var isOlympicSport : Bool
+    
+    var OlympicStatus:String{
+        if isOlympicSport{
+            return "\(name) is Olympic Sport"
+        }else{
+            return "\(name) is not Olympic Sport"
+        }
+    }
+}
+
+let chessBoxing = Sport(name: "Chess Boxing", isOlympicSport: false)
+print(chessBoxing.OlympicStatus)
+
+//Property Observers
+
+struct Progress{
+    var task: String
+    var amount: Int{
+        didSet{
+            print("\(task) is now \(amount)% complete")
+        }
+    }
+}
+
+var progress = Progress(task:"Loading data", amount:0)
+progress.amount = 30
+progress.amount = 80
+progress.amount = 100
+
+//Methods
+struct City{
+    var population:Int
+    
+    func collectTaxes() -> Int {
+        return population * 1000
+    }
+}
+ let london = City(population: 9_000_000)
+print(london.collectTaxes())
+
+//Mutating methods
+struct Person{
+    var name: String
+    
+    mutating func makeAnonymous(){
+        name = "Anonymous"
+    }
+}
+var person = Person(name:"Madhu")
+person.makeAnonymous()
+
+//Properties and methods of Strings
+let string = "Hello Swift"
+
+print(string.count)
+print(string.hasPrefix("Hello"))
+print(string.uppercased())
+print(string.sorted())
+
+//Properties and methods of Arrays
+var toys = ["Woodys"]
+
+print(toys.count)
+toys.append("Buzz")
+toys.firstIndex(of: "Buzz")
+print(toys.sorted())
+toys.remove(at: 1)
