@@ -590,3 +590,79 @@ toys.append("Buzz")
 toys.firstIndex(of: "Buzz")
 print(toys.sorted())
 toys.remove(at: 1)
+print("\n")
+
+//DAY 9
+//Intializers
+
+struct User{
+    var userName:String
+    
+    init(){
+        userName = "Anonymous"
+        print("Creating new user")
+    }
+}
+
+var user = User()
+user.userName = ("Madhukesh")
+
+//Referring to the current instance
+
+struct PersonName{
+    var name:String
+    
+    init(name:String){
+        print("\(name) was born")
+        self.name = name
+    }
+}
+
+//Family tree
+struct FamilyTree{
+    init(){
+        print("Creating family tree")
+    }
+}
+
+struct Person1{
+    var name:String
+    lazy var familyTree = FamilyTree()
+    
+    init(name:String){
+        self.name = name
+    }
+}
+
+var ed = Person1(name:"ed")
+ed.familyTree
+
+//Static properties and methods
+struct Student{
+    static var classSize = 0
+    var name: String
+    
+    init(name:String){
+        self.name = name
+        Student.classSize += 1
+    }
+}
+
+let madhu = Student(name:"Madhu")
+let naveen = Student(name:"Naveen")
+print(Student.classSize)
+
+//Access control
+struct Person2{
+    private var id:String
+    
+    init(id:String){
+        self.id = id
+    }
+    
+    func identify()->String{
+        return "My social security number is \(id)"
+    }
+}
+
+var rahul = Person2(id: "1223")
