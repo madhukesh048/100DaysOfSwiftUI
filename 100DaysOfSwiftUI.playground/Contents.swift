@@ -666,3 +666,97 @@ struct Person2{
 }
 
 var rahul = Person2(id: "1223")
+print("\n")
+
+//DAY 10
+//Creating own class
+
+class Dog{
+    var name : String
+    var breed: String
+    
+    init(name:String, breed:String){
+        self.name = name
+        self.breed = breed
+    }
+}
+
+let poppy = Dog(name: "Doggy", breed: "Poodle")
+print(poppy.name)
+
+//Class interitence
+class Poodle: Dog{
+    init(name:String){
+        super.init(name: name, breed: "Poodle")
+    }
+    
+}
+
+//Overiding methods
+class Doggie{
+    func makeNoise(){
+        print("Woof!")
+    }
+}
+
+class Doodle:Doggie{
+    override func makeNoise() {
+        print("Yip")
+    }
+}
+let puppy = Doodle()
+puppy.makeNoise()
+
+//Final classes
+final class Jog{
+    var place:String
+    var time:String
+    
+    init(place:String,time:String){
+        self.place = place
+        self.time = time
+    }
+}
+
+//Copying Objects
+class Singer{
+    var name = "Taylor Swift"
+}
+
+var singer = Singer()
+print(singer.name)
+
+var singerCopy = singer
+singerCopy.name = "Justin Beiber"
+print(singer.name)
+
+//Deinitializers
+class P1{
+    var name = "Madhukesh"
+    
+    init(){
+        print("\(name) is alive")
+    }
+    
+    func greetings(){
+        print("Hello I'm \(name)")
+    }
+    deinit {
+        print("He is no more")
+    }
+}
+
+for _ in 1...3{
+    let person = P1()
+    person.greetings()
+}
+
+//Mutatibility
+class Dancer{
+    var name = "MJ"
+}
+
+let mj = Dancer()
+mj.name = "Prabhudeva"
+print(mj.name)
+
