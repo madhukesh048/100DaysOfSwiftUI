@@ -759,4 +759,83 @@ class Dancer{
 let mj = Dancer()
 mj.name = "Prabhudeva"
 print(mj.name)
+print("\n")
 
+//DAY 11
+//Protocols
+protocol Identifiable{
+    var id : String{get set}
+}
+
+struct Users: Identifiable {
+    var id: String
+}
+
+func displayID(thing:Identifiable){
+    print("My ID is \(thing.id)")
+}
+
+//Protocols inheritance
+protocol Payable{
+    func calculateWages()
+}
+
+protocol NeedsTraining{
+    func study()
+}
+
+protocol HasVacation{
+    func takeVacation(days:Int)
+}
+
+protocol Employee: Payable, NeedsTraining, HasVacation{}
+
+//Extensions
+extension Int{
+    func squared() -> Int{
+        return self * self
+    }
+}
+let number = 8
+number.squared()
+
+extension Int{
+    var isEven: Bool{
+        return self % 2 == 0
+    }
+}
+
+//Protocols extension
+let pythons = ["Ram", "Shayam", "Bham", "Tom"]
+let beatle = Set(["John","Paul","George","Ringo"])
+
+extension Collection{
+    func summarize(){
+        print("There are \(count) of us:")
+        
+        for name in self{
+            print(name)
+        }
+    }
+}
+pythons.summarize()
+beatle.summarize()
+
+//Protocol oriented programming
+protocol identifiable {
+    var id: String { get set }
+    func identify()
+}
+
+extension identifiable {
+    func identify() {
+        print("My ID is \(id).")
+    }
+}
+
+struct Userss: identifiable {
+    var id: String
+}
+
+let Madhu = Userss(id: "madhu")
+Madhu.identify()
