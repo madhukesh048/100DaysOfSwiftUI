@@ -839,3 +839,91 @@ struct Userss: identifiable {
 
 let Madhu = Userss(id: "madhu")
 Madhu.identify()
+print("\n")
+
+//DAY 12
+//Handling missing data
+var newAge : Int? = nil
+print(newAge)
+newAge = 22
+
+//Unwrapping optionals
+var aName: String? = nil
+
+if let unwrapped = aName{
+    print("\(unwrapped.count) letters")
+}
+else{
+    print("Missing name")
+}
+
+//Unwrapping using guard
+func myGreet(_ name:String?){
+    guard let unwrapped = name else {
+        print("You dint provide name")
+        return
+    }
+    print("hello,\(unwrapped)")
+}
+
+//Force unwrapping
+let strn = "5"
+let num = Int(strn)!
+
+//Implicitly unwrapped optionals
+
+let petAge: Int! = nil
+
+//Nil coalescing
+func username(for id: Int) -> String? {
+    if id == 1 {
+        return "Taylor Swift"
+    } else {
+        return nil
+    }
+}
+let user5 = username(for: 15) ?? "Anonymous"
+
+//Optional chaining
+let names = ["John", "Paul", "George", "Ringo"]
+let beatless = names.first?.uppercased()
+
+//Optional try
+if let result = try? checkPassword("password") {
+    print("Result was \(result)")
+} else {
+    print("D'oh.")
+}
+
+try! checkPassword("sekrit")
+print("OK!")
+
+//Failable initializers
+struct Person3 {
+    var id: String
+
+    init?(id: String) {
+        if id.count == 9 {
+            self.id = id
+        } else {
+            return nil
+        }
+    }
+}
+
+//Typecasting
+class Animal { }
+class Fish: Animal { }
+
+class Doggy: Animal {
+    func makeNoise() {
+        print("Woof!")
+    }
+}
+let pets = [Fish(), Doggy(), Fish(), Doggy()]
+
+for pet in pets {
+    if let dog = pet as? Doggy {
+        dog.makeNoise()
+    }
+}
