@@ -927,3 +927,103 @@ for pet in pets {
         dog.makeNoise()
     }
 }
+print("\n")
+
+//DAY 13
+//Consolidation 1
+//Swift Review 1
+var variableName = "Swift"
+variableName = "SwiftUI"
+
+let constName = "Swift"
+
+var name265:String
+name265 = "Madhu"
+// var name265 = "Madhu"
+
+var marks:Int
+marks = 122
+// var marks = 122
+
+var isSingle:Bool
+isSingle = true
+// var isSingle = true
+
+var longitude: Double
+longitude = 1223.334
+// var longitude = 1223.334
+
+var latitude: Float
+latitude = -1872.33
+// var latitude = -1872.33
+
+
+var x = 10
+x = x+1
+x = x-1
+x = x*x
+
+var y = 10
+y += 1
+y -= 1
+
+var z = x+y
+
+x > 3
+x < 3
+x == 3
+x >= 3
+ 
+name265 == "MAdhu"
+name265 != "MAdhu"
+isSingle
+!isSingle
+
+"My name is \(name265)"
+ 
+var evenNumbers = [2,4,6,8]
+var nam:[String] = ["ram","sita"]
+var subjects:[Any] = ["maths","science","social",3]
+subjects[0]
+type(of: subjects)
+
+var songs: [String] = []
+var both = nam + subjects
+
+var personSwift = [
+                "first": "Taylor",
+                "middle": "Alison",
+                "last": "Swift",
+                "month": "December",
+                "website": "taylorswift.com"
+            ]
+
+personSwift["middle"]
+personSwift["month"]
+
+var action: String
+var perSon = "hater"
+
+if perSon == "hater" {
+    action = "hate"
+}
+
+for i in 1...10 {
+    print("\(i) x 10 is \(i * 10)")
+}
+
+let liveAlbums = 2
+
+switch liveAlbums {
+case 0:
+    print("You're just starting out")
+
+case 1:
+    print("You just released iTunes Live From SoHo")
+
+case 2:
+    print("You just released Speak Now World Tour")
+
+default:
+    print("Have you done something new?")
+}
