@@ -1027,3 +1027,75 @@ case 2:
 default:
     print("Have you done something new?")
 }
+print("\n")
+
+//DAY 14
+//Consolidation 1
+//Swift Review 2
+func favAlbum(){
+    print("My fav ablum is GBSM")
+}
+favAlbum()
+
+func countLetters(in string: String) {
+    print("The string \(string) has \(string.count) letters.")
+}
+countLetters(in: "Hello")
+
+func getHaterStatus(weather: String) -> String? {
+    if weather == "sunny" {
+        return nil
+    } else {
+        return "Hate"
+    }
+}
+//? optional
+
+func albumReleased(year: Int) -> String? {
+    switch year {
+    case 2006: return "Taylor Swift"
+    case 2008: return "Fearless"
+    default: return nil
+    }
+}
+
+let album = albumReleased(year: 2006)?.uppercased()
+print("The album is \(album)")
+
+enum WeatherType {
+    case sun, cloud, rain, wind, snow
+}
+
+func getHaterStatus(weather: WeatherType) -> String? {
+    if weather == WeatherType.sun {
+        return nil
+    } else {
+        return "Hate"
+    }
+}
+
+getHaterStatus(weather: WeatherType.cloud)
+
+struct Person6 {
+    var clothes: String
+    var shoes: String
+}
+
+let taylor1 = Person6(clothes: "T-shirts", shoes: "sneakers")
+let other = Person6(clothes: "short skirts", shoes: "high heels")
+
+var taylorCopy = taylor1
+taylorCopy.shoes = "flip flops"
+
+print(taylor1)
+print(taylorCopy)
+
+class Person7 {
+    var clothes: String
+    var shoes: String
+
+    init(clothes: String, shoes: String) {
+        self.clothes = clothes
+        self.shoes = shoes
+    }
+}
