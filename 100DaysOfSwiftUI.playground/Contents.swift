@@ -1099,3 +1099,42 @@ class Person7 {
         self.shoes = shoes
     }
 }
+print("\n")
+
+//DAY 15
+//Consolidation 1
+//Swift Review 3
+struct Person8 {
+    var clothes: String {
+        willSet {
+            updateUI(msg: "I'm changing from \(clothes) to \(newValue)")
+        }
+
+        didSet {
+            updateUI(msg: "I just changed from \(oldValue) to \(clothes)")
+        }
+    }
+}
+
+func updateUI(msg: String) {
+    print(msg)
+}
+
+var taylor3 = Person8(clothes: "T-shirts")
+taylor3.clothes = "short skirts"
+
+struct TaylorFan {
+    static var favoriteSong = "Look What You Made Me Do"
+
+    var name: String
+    var age: Int
+}
+
+let fan = TaylorFan(name: "James", age: 25)
+print(TaylorFan.favoriteSong)
+
+let vw = UIView()
+
+UIView.animate(withDuration: 0.5) {
+    vw.alpha = 0
+}
