@@ -15,6 +15,16 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     @State private var score = 0
     
+    struct FlagImage: View{
+        var text: String
+        var body: some View{
+            Image(text).renderingMode(.original)
+                .clipShape(Capsule())
+                .overlay(Capsule().stroke(Color.black,lineWidth: 1))
+                .shadow(color:.black,radius: 2)
+        }
+    }
+    
     var body: some View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [.blue,.black]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
@@ -31,10 +41,7 @@ struct ContentView: View {
                     Button(action:{
                         self.flagTapped(number)
                     }){
-                        Image(self.countries[number]).renderingMode(.original)
-                        .clipShape(Capsule())
-                        .overlay(Capsule().stroke(Color.black, lineWidth: 1))
-                        .shadow(color: .black, radius: 2)
+                        FlagImage(text: self.countries[number])
                     }
                 }
                 Text("Your Score is \(score)")
