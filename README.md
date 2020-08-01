@@ -9,3 +9,5 @@
 ![Screenshot 2020-07-28 at 7 09 23 PM](https://user-images.githubusercontent.com/31788197/88673185-f0032100-d105-11ea-8c41-f411d597a8fe.png)
 ## Challenge Project 2 - RockPaperScissors
 ![Screenshot 2020-07-29 at 11 53 04 PM](https://user-images.githubusercontent.com/31788197/88838539-53b94700-d1f7-11ea-83cd-075d3ac53371.png)
+## Project 4 - BetterRest
+![Screenshot 2020-08-01 at 10 00 38 PM](https://user-images.githubusercontent.com/31788197/89105877-a33f8300-d442-11ea-981a-8839b45602b6.png)
