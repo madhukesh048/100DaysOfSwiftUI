@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var errorTitle = ""
     @State private var errorMessage = ""
     @State private var showingError = false
+    @State private var score = 0
     
     var body: some View {
         NavigationView{
@@ -28,12 +29,19 @@ struct ContentView: View {
                     Image(systemName: "\($0.count).circle")
                     Text($0)
                 }
+                Text("Your Score : \(score)")
+                    .font(.headline)
+                    .foregroundColor(Color.blue)
+                .padding()
             }
             .navigationBarTitle(rootWord)
             .onAppear(perform: startGame)
             .alert(isPresented: $showingError) {
                 Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
             }
+            .navigationBarItems(trailing: Button(action:startGame){
+                Text("Restart")
+            })
         }
     }
     
@@ -53,17 +61,30 @@ struct ContentView: View {
             wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
             return
         }
+        
+        guard isSame(word: answer) else{
+            wordError(title: "Words not possible", message:     "Cannot be same as rootword.")
+            return
+        }
 
         guard isReal(word: answer) else {
             wordError(title: "Word not possible", message: "That isn't a real word.")
             return
         }
         
+        guard isSmallWord(word: answer)else {
+            wordError(title: "Word not possible", message: "word cannot be less than 3 letters")
+            return
+        }
+        
         usedWords.insert(answer, at: 0)
+        score += 1
         newWord = ""
     }
     
     func startGame() {
+        usedWords.removeAll()
+        score = 0
         if let startWordURL = Bundle.main.url(forResource: "start", withExtension:  "txt"){
             if let startWords = try?String(contentsOf: startWordURL){
                 let allWords = startWords.components(separatedBy: "\n")
@@ -103,6 +124,22 @@ struct ContentView: View {
         errorTitle = title
         errorMessage = message
         showingError = true
+    }
+    
+    func isSame(word:String) -> Bool{
+        if (word.lowercased() == rootWord.lowercased()){
+            return false
+        }else{
+            return true
+        }
+    }
+    
+    func isSmallWord(word:String) -> Bool {
+        if(word.count < 3){
+            return false
+        }else{
+            return true
+        }
     }
 }
 
