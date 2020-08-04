@@ -11,3 +11,6 @@
 ![Screenshot 2020-07-29 at 11 53 04 PM](https://user-images.githubusercontent.com/31788197/88838539-53b94700-d1f7-11ea-83cd-075d3ac53371.png)
 ## Project 4 - BetterRest
 ![Screenshot 2020-08-01 at 10 00 38 PM](https://user-images.githubusercontent.com/31788197/89105877-a33f8300-d442-11ea-981a-8839b45602b6.png)
+## Project 5 - WordScramble
+![Screenshot 2020-08-04 at 9 39 48 PM](https://user-images.githubusercontent.com/31788197/89317748-733eec80-d69b-11ea-9d14-7795af45a1e9.png)
+![Screenshot 2020-08-04 at 9 41 28 PM](https://user-images.githubusercontent.com/31788197/89317752-7508b000-d69b-11ea-8f76-ec80a846dd4c.png)
