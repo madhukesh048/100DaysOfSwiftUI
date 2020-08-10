@@ -33,7 +33,7 @@ struct ContentView: View {
                         }
                          .pickerStyle(SegmentedPickerStyle())
                     }
-                    NavigationLink(destination:GameView(),isActive:$isGameOn){
+                    NavigationLink(destination:GameView(numberOfQuestions: $noOfQuestions,tables:tables),isActive:$isGameOn){
                         Button(action:{
                             self.calculateNoOfQuestions()
                             print(self.noOfQuestions)
