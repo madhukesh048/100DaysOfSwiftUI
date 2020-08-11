@@ -18,36 +18,45 @@ struct ContentView: View {
     var body: some View {
         Group{
             NavigationView{
-                VStack(spacing:20){
-                    Section(header:Text("Choose tables")){
-                        Stepper(value:$tables, in: 1...12){
-                            Text("Upto \(tables)")
-                        }
-                        
-                    }
-                    Section(header:Text("Choose number of questions")){
-                        Picker(selection:$noOfQuestions, label:Text("")){
-                            ForEach(0..<self.questions.count){ index in
-                                Text("\(self.questions[index])").tag(index)
-                            }
-                        }
-                         .pickerStyle(SegmentedPickerStyle())
-                    }
-                    NavigationLink(destination:GameView(numberOfQuestions: $noOfQuestions,tables:tables),isActive:$isGameOn){
-                        Button(action:{
-                            self.calculateNoOfQuestions()
-                            print(self.noOfQuestions)
-                            self.isGameOn = true
-                        }){
-                            Text("Start Game")
-                            .padding(.all, 12)
-                            .foregroundColor(.white)
-                            .background(Color.black)
-                        }
-                    }
-                    Spacer()
-                .navigationBarTitle("Edutainment")
-                }
+				ZStack{
+					LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: .topLeading, endPoint: .bottomTrailing).edgesIgnoringSafeArea(.all)
+					VStack(spacing:20){
+						Spacer()
+						Section(header:Text("Choose tables")){
+							Stepper(value:$tables, in: 1...10){
+								Text("Upto \(tables)")
+							}
+						.padding(20)
+							
+						}
+						Section(header:Text("Choose number of questions")){
+							Picker(selection:$noOfQuestions, label:Text("")){
+								ForEach(0..<self.questions.count){ index in
+									Text("\(self.questions[index])").tag(index)
+								}
+							}
+							 .pickerStyle(SegmentedPickerStyle())
+						.padding(40)
+						}
+						NavigationLink(destination:GameView(numberOfQuestions: $noOfQuestions,tables:tables),isActive:$isGameOn){
+							Button(action:{
+								self.calculateNoOfQuestions()
+								print(self.noOfQuestions)
+								self.isGameOn = true
+							}){
+								Text("Start Game")
+								.padding(.all, 12)
+								.foregroundColor(.white)
+								.background(Color.black)
+								.cornerRadius(10)
+							}
+						}
+						Spacer()
+							.navigationBarTitle("Edutainment",displayMode: .inline)
+							.foregroundColor(.black)
+							.font(.title)
+					}
+				}
             }
         }
     }
