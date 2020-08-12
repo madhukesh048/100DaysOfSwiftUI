@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var tables = 4
-    @State private var noOfQuestions = 5
+    @State private var noOfQuestions = 0
     @State private var isGameOn = false
     
     let questions = ["5","10","20","All"]

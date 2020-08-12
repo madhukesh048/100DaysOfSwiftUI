@@ -44,7 +44,7 @@ struct GameView: View {
                            .padding(20)
                            .textFieldStyle(RoundedBorderTextFieldStyle())
                        Button(action: {
-                          //
+                        self.onSubmit()
                        }) {
                            Text("Submit")
                                .padding(.all, 12)
@@ -55,6 +55,14 @@ struct GameView: View {
                 }
             }
         }
+    }
+    func onSubmit(){
+        if(tables * multiplyBy == Int(userAnswer)){
+            print("Correct Ans: \(userAnswer)")
+        }else{
+            print("Wrong Ans: \(userAnswer)")
+        }
+        
     }
 }
 
