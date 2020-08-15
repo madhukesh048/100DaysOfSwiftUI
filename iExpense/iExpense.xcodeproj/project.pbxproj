@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		407065ED24E840D3008423C3 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407065EC24E840D3008423C3 /* AddExpenseView.swift */; };
 		40B4D03C24E6F1FE00C33F10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4D03B24E6F1FE00C33F10 /* AppDelegate.swift */; };
 		40B4D03E24E6F1FE00C33F10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4D03D24E6F1FE00C33F10 /* SceneDelegate.swift */; };
 		40B4D04024E6F1FE00C33F10 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4D03F24E6F1FE00C33F10 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		407065EC24E840D3008423C3 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = SOURCE_ROOT; };
 		40B4D03824E6F1FE00C33F10 /* iExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B4D03B24E6F1FE00C33F10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40B4D03D24E6F1FE00C33F10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		40B4D03A24E6F1FE00C33F10 /* iExpense */ = {
 			isa = PBXGroup;
 			children = (
+				407065EC24E840D3008423C3 /* AddExpenseView.swift */,
 				40B4D03B24E6F1FE00C33F10 /* AppDelegate.swift */,
 				40B4D03D24E6F1FE00C33F10 /* SceneDelegate.swift */,
 				40B4D03F24E6F1FE00C33F10 /* ContentView.swift */,
@@ -149,6 +152,7 @@
 				40B4D03C24E6F1FE00C33F10 /* AppDelegate.swift in Sources */,
 				40B4D03E24E6F1FE00C33F10 /* SceneDelegate.swift in Sources */,
 				40B4D04024E6F1FE00C33F10 /* ContentView.swift in Sources */,
+				407065ED24E840D3008423C3 /* AddExpenseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

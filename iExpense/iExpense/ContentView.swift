@@ -8,25 +8,69 @@
 
 import SwiftUI
 
-struct SecondView: View {
-    @Environment(\.presentationMode) var presentationMode
-    var name:String
-    var body: some View {
-        Button("Dismiss") {
-            self.presentationMode.wrappedValue.dismiss()
+struct ExpenseItem: Identifiable, Codable {
+    let id = UUID()
+    let name: String
+    let type: String
+    let amount: Int
+}
+
+class Expenses: ObservableObject {
+    @Published var items = [ExpenseItem](){
+        didSet {
+               let encoder = JSONEncoder()
+               if let encoded = try? encoder.encode(items) {
+                   UserDefaults.standard.set(encoded, forKey: "Items")
+               }
+           }
+    }
+    init() {
+        if let items = UserDefaults.standard.data(forKey: "Items") {
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode([ExpenseItem].self, from: items) {
+                self.items = decoded
+                return
+            }
         }
+
+        self.items = []
     }
 }
 
 struct ContentView: View {
-    @State private var showingSheet = false
+    @ObservedObject var expenses = Expenses()
+    @State private var showingAddExpense = false
+    
     var body: some View {
-        Button("Show sheet"){
-            self.showingSheet.toggle()
+        NavigationView{
+            List{
+                ForEach(expenses.items){ item in
+                   HStack {
+                        VStack(alignment: .leading) {
+                            Text(item.name)
+                                .font(.headline)
+                            Text(item.type)
+                        }
+
+                        Spacer()
+                        Text("$\(item.amount)")
+                    }
+                }
+            .onDelete(perform: removeItems)
+            }
+        .navigationBarTitle("iExpense")
+            .navigationBarItems(trailing: Button(action:{
+                self.showingAddExpense = true
+            }){
+                Image(systemName: "plus")
+            })
+                .sheet(isPresented:$showingAddExpense){
+                    AddExpenseView(expenses: self.expenses)
+            }
         }
-        .sheet(isPresented: $showingSheet){
-            SecondView(name:"Madhukesh")
-        }
+    }
+    func removeItems(at offsets: IndexSet){
+        expenses.items.remove(atOffsets: offsets)
     }
 }
 
