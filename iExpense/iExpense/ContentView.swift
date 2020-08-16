@@ -53,13 +53,21 @@ struct ContentView: View {
                         }
 
                         Spacer()
+                        
+                    if(Int(item.amount)<1000){
                         Text("$\(item.amount)")
+                            .foregroundColor(Color.green)
+                    }
+                    else{
+                        Text("$\(item.amount)")
+                            .foregroundColor(Color.red)
+                    }
                     }
                 }
             .onDelete(perform: removeItems)
             }
         .navigationBarTitle("iExpense")
-            .navigationBarItems(trailing: Button(action:{
+            .navigationBarItems(leading:EditButton(),trailing: Button(action:{
                 self.showingAddExpense = true
             }){
                 Image(systemName: "plus")
